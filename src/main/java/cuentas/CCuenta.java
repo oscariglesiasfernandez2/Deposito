@@ -6,7 +6,7 @@ package cuentas;
 
 /**
  *
- * @author oscari
+ * @author rodolfo ucha o xunta
  */
 public class CCuenta {
 
@@ -69,30 +69,51 @@ public class CCuenta {
     private String cuenta;
     private double saldo;
     private double tipoInterés;
-
+    /**
+     * constructor vacio
+     */
     public CCuenta()
     {
     }
-
+    
+    /**
+     * constructor completo
+     * @param nom que indica el nonmbre
+     * @param cue que indica la cuenta
+     * @param sal que indica el saldo
+     * @param tipo que indica el tipo de interes
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
     }
-
+    
+    /**
+     * Indica el estado de la cuenta
+     * @return getSaldo
+     */
     public double estado()
     {
         return getSaldo();
     }
-
+    /**
+     * Permite realizar ingresos en la cuenta
+     * @param cantidad
+     * @throws Exception impide ingresar cantidades negativas
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
         setSaldo(getSaldo() + cantidad);
     }
-
+    /**
+     * Permite hacer retiradas de la cuenta
+     * @param cantidad
+     * @throws Exception impide realizar cantidades superiores a saldo
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
